@@ -16,6 +16,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Bind Widget
+        bindWidget();//Create method [option+enter]  //Compleatement [shift+cmd+enter]
+
+
+
     }   // Main Method
 
+    private void bindWidget() {
+        trafficListView = (ListView) findViewById(R.id.listView);
+        aboutButton = (Button) findViewById(R.id.button);
+
+
+    }   // bidWidget
+
 }   // Main Class
+// Code Format [option+cmd+l]
