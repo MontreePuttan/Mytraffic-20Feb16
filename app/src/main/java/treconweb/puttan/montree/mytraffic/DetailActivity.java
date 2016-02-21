@@ -2,11 +2,12 @@ package treconweb.puttan.montree.mytraffic;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
     private TextView titleTextView, detailTextView;
@@ -29,7 +30,20 @@ public class DetailActivity extends AppCompatActivity {
         //Show View
         showView();
 
+
+        //Button Controller
+        buttonController();
+
+
     }   // Main Method
+
+    private void buttonController() {
+
+        preButton.setOnClickListener(this);
+        backButton.setOnClickListener(this);
+        nextButton.setOnClickListener(this);
+
+    }   // buttonController
 
     private void showView() {
 
@@ -66,4 +80,33 @@ public class DetailActivity extends AppCompatActivity {
 
     }   // bindWidget
 
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.button2:
+
+                myIndexAnInt -= 1;
+                if (myIndexAnInt < 0) {
+                    myIndexAnInt = 19;
+                }
+                changeView(myIndexAnInt);
+
+                break;
+            case R.id.button3:
+                finish();
+                break;
+            case R.id.button4:
+
+                myIndexAnInt += 1;
+                if (myIndexAnInt >= 20) {
+                    myIndexAnInt = 0;
+                }
+                changeView(myIndexAnInt);
+
+                break;
+        }   // swich
+
+
+    }   // onClick
 }    // Main Class
