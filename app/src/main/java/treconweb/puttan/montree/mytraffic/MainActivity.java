@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -14,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     //Explicit
     private ListView trafficListView;
     private Button aboutButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,17 @@ public class MainActivity extends AppCompatActivity {
         //Send Value to Adapter
         MyAdapter myAdapter = new MyAdapter(MainActivity.this, iconInts, titleStrings, detailShortStrings);
         trafficListView.setAdapter(myAdapter);
+
+
+        //ListView Active When Click
+        trafficListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                startActivity(intent);
+            }   // even
+        });
 
 
     }   // listviewController
