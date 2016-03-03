@@ -9,5 +9,6 @@
 
     <dimen name="icon">120dp</dimen>
     <dimen name="image">200dp</dimen>
+    <dimen name="text_about">20dp</dimen>
 
 </resources>
